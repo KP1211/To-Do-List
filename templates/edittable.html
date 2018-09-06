@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Userpage</title>
+  <style>
+  table, th, td {
+     border: 1px solid black;
+     border-collapse: collapse
+     th, td {
+         width: 25%
+         padding: 25px
+      }
+  }
+  </style>
+  </head>
+  
+  <body>
+    <h2>
+      <br>
+      <form action="/addedit" method="post">
+         <input type="text" placeholder="Add New Task" name="add">
+         <input type="submit" value="Add">        
+      </form>
+      <br>
+      <form action="/deledit" method="post">
+         <input type="text" placeholder="Task to Delete" name="delete">
+         <input type="submit" value="Delete">        
+      </form>
+      <br>
+      <form action="/modedit" method="post">
+         <input type="text" placeholder="Completed Task Name" name="modify">
+         <input type="submit" value="Modify">        
+      </form>
+      <br>
+      <br>
+      <table>
+         <tr>
+            <th>Task</th>
+            <th>Completed</th>
+         </tr>
+         {% for rows in rows %}
+         <tr>
+            <td>{{rows["tasks"]}}</td>
+            <td>{{rows["state"]}}</td>
+         </tr>
+         {% endfor %}
+      </table>
+      <br>
+      <a href='/logout'> Logout </a>
+    </h2>
+  </body>
+</html>
